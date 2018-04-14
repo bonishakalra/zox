@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+	<title>Zox</title>
+
+	<!-- Angular JS files -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-route.min.js"></script>
+	
+	<!-- Cascading Style Sheets -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://use.fontawesome.com/503308b838.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<!-- Angular Config File -->
+	<script type="text/javascript" src="./app/app.js"></script>
+	
+    <!-- Angular Route File -->
+    <script type="text/javascript" src="./app/route.js"></script>
+
+    <!-- Angular Controller File -->
+    <script type="text/javascript" src="./app/Controllers/myCtrl.js"></script>
+
+    <!-- Angular Service File -->
+	<script type="text/javascript" src="./app/Services/myServ.js"></script>
+
+</head>
+<body ng-app="zoxApp" ng-controller="mainController as main">
+	<header>
+		<div>
+			<modal-directive></modal-directive>
+		</div>
+		<nav>
+			<div class="container">
+				<div class="row text-center">
+					<a class="col-md-6 text-center nav-icon" ng-if="main.users.length==0" ng-href="https://www.instagram.com/oauth/authorize/?client_id=6c631a6688cb4f93a2626054b818901d&redirect_uri={{main.redirectUrl}}&response_type=token&scope=basic">
+						<i class="fa fa-instagram fa-5x" aria-hidden="true"></i>
+					</a>
+					<a class="col-md-6 text-center nav-icon" ng-if="main.users.length>0" ng-href="/insta">
+						<i class="fa fa-instagram fa-5x" aria-hidden="true"></i>
+					</a>
+					<a class="col-md-6 text-center nav-icon" ng-if="main.hasScreenName()" ng-click="main.getTwitterData()">
+						<i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i>
+					</a>
+					<a class="col-md-6 text-center nav-icon" data-toggle="modal" data-target="#twitterSignUpModal" ng-if="!main.hasScreenName()">
+						<i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+		</nav>
+
+		
+	</header>
+
+	<div ng-view></div>
+
+</body>
+</html>
+
+
+<!-- ng-href="https://www.instagram.com/oauth/authorize/?client_id=6c631a6688cb4f93a2626054b818901d&redirect_uri={{main.redirectUrl}}&response_type=token&scope=basic" -->
+
+<!-- 
+<a href="https://www.instagram.com/oauth/authorize/?client_id=6c631a6688cb4f93a2626054b818901d&redirect_uri=http://localhost:8000/&response_type=token&scope=basic">Instagram</a> -->
+<!-- <div ng-repeat="user in users">
+	<img src="{{user.images.standard_resolution.url}}">
+</div> -->

@@ -1,0 +1,52 @@
+<sidebar>
+    <div class="text-center">
+        <img class="img-fluid  profile-pic" src="{{main.twitterData[0].user.profile_image_url_https}}" alt="Card image cap">
+        <h5 ng-bind="main.twitterData[0].user.screen_name" class="text-twitter"></h5>
+        <h6 class="text-secondary" ng-bind="main.twitterData[0].user.name"></h6>
+        <div class="text-secondary" ng-bind="main.twitterData[0].user.description"></div>
+
+        <div class="form-control twitter-band">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-twitter"><strong>Tweets</strong></div>
+                    <div ng-bind="main.twitterData[0].user.statuses_count"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-twitter"><strong>Following</strong></div>
+                    <div ng-bind="main.twitterData[0].user.friends_count"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-twitter"><strong>Followers</strong></div>
+                    <div ng-bind="main.twitterData[0].user.followers_count"></div>
+                </div>
+            </div>
+        </div>        
+
+        <button class="btn btn-secondary btn-block twitter-button">Twitter</button>
+    </div>
+</sidebar>
+
+
+
+<div class="container insta">
+    <div ng-repeat="data in main.twitterData track by $index">
+        <div class="card tweet-card text-secondary">
+            <div>
+                <img class="tiny-pic" src="{{data.user.profile_image_url_https}}">
+                <strong class="text-twitter" ng-bind="data.user.name"></strong>
+                <span > &#64;{{data.user.screen_name}}</span>
+                <span class="right-text" ng-bind="data.created_at.substr(0, 11)"></span>
+            </div>
+            <div class="card-body" ng-bind="data.text"></div>
+            
+            <div class="modal-footer">
+                <span class="tweet-spans grey-text"><i class="fa fa-heart fa-2x"></i> {{data.favorite_count}}</span>
+                <span class="tweet-spans grey-text"><i class="fa fa-retweet fa-2x"></i> {{data.retweet_count}}</span>
+            </div>
+            
+        </div>    
+    </div>
+</div>
+                        
+
+<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->

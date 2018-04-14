@@ -1,0 +1,186 @@
+nav {
+	background-color: black;
+	padding: 10px;
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+}
+
+.nav-icon {
+	background-color: #eeecec;
+}
+
+.nav-icon:hover {
+	background-color: white;
+	cursor: pointer;
+}
+
+
+
+.fa.fa-instagram {
+  color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.fa-twitter-square {
+	color: #00aced;
+}
+
+
+
+img {
+	height: 300px;
+}
+
+.card {
+	margin: 40px;
+	width: 80%;
+}
+
+
+
+.eachPic {
+	display: inline-block;
+	width: 33%;
+	cursor: pointer;
+}
+
+.modal-dialog {
+	max-width: 60%;
+}
+
+.tiny-pic {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	margin-right: 10px;
+}
+
+.modal-title {
+	font-size: 1.3em;
+	padding-top: 20px;
+}
+
+.card-title {
+	margin-top: 20px;
+}
+
+.modal-content {
+  height: 100%;
+  border-radius: 0;
+  position:relative;
+}
+
+.modal-footer {
+  border-radius: 0;
+  bottom:0px;
+  position:absolute;
+  width: 90%;
+}
+
+.fa-heart {
+	color: red;
+}
+
+sidebar {
+	width: 20%;
+	position: fixed;
+	z-index: -1000;
+	background-color: #eeecec;
+	height: 100%;
+}
+
+.insta {
+	width: 80%;
+	float: right;
+	padding-top: 100px;
+}
+
+.profile-pic {
+	margin-top: 200px;
+	margin-bottom: 20px; 
+	border-radius: 100px;
+	width: 50%;
+}
+
+.insta-button {
+	background: #d6249f;
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+	box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+	cursor: pointer;
+	bottom: 70px;
+	position: absolute;
+	font-weight: bolder;
+	padding:15px;
+}
+
+.nav {
+	margin: 0 auto;
+}
+
+#twitterSignUpModal .modal-footer {
+	width: auto;
+	position: relative;
+}
+
+#twitterSignUpModal .modal-body {
+	padding: 50px;
+}
+
+.twitter-button {
+	background-color: #00aced;
+	cursor: pointer;
+	bottom: 70px;
+	position: absolute;
+	font-weight: bolder;
+	padding:15px;
+}
+
+.card {
+	padding: 30px 50px 10px 50px;
+}
+
+.tweet-card {
+	background-color: #fcfcfc;
+}
+
+.tweet-card .modal-footer {
+	width: auto;
+	position: relative;
+}
+
+.card-body {
+	padding: 30px 50px 10px 50px;
+}
+
+.card-body {
+    padding: 1.5rem;
+    font-size: 0.9em;
+}
+
+.tweet-spans {
+	margin: 0 20px!important;
+}
+
+.grey-text {
+	color: #787878;
+}
+
+.right-text {
+	float: right;
+}
+
+.twitter-band {
+	cursor: pointer;
+	bottom: 160px;
+	position: absolute;
+	padding:15px;
+	background-color: #fcfcfc;
+}
+
+.text-twitter {
+	color: #00aced;
+}
