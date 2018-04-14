@@ -1,24 +1,21 @@
-angular.module('controllerModule', ['InstagramServiceModule'])
-.controller('mainController', function($scope,  $rootScope, $location, instaServiceFact, $window) {
+angular.module('controllerModule', ['instagramServiceModule'])
+.controller('mainController', function($rootScope, $location, instaServiceFact, twitterServiceFact) {
 	
 	var app = this;
 
 	app.redirectUrl = 'http://localhost:8000/insta';
 	app.screenName = '';
-	app.twitterLocalStorage = $window.localStorage.getItem('twitter');
-	app.instaLocalStorage = $window.localStorage.getItem('insta');
 
+	// Get twitter and Insta data from Local Storage
+	app.twitterLocalStorage = twitterServiceFact.getTwitterData();
+	app.instaLocalStorage = instaServiceFact.getInstaData();
 	app.twitterData = (typeof app.twitterLocalStorage == "string" ? JSON.parse(app.twitterLocalStorage) : app.twitterLocalStorage) || [];
 	app.users = (typeof app.instaLocalStorage == "string" ? JSON.parse(app.instaLocalStorage) : app.instaLocalStorage) || [];
 
-	console.log(app.twitterLocalStorage);
-	console.log(app.instaLocalStorage);
-	console.log(typeof app.twitterLocalStorage);
-	console.log(typeof app.twitterLocalStorage == "string");
-
+	// Check if user has Screen Name for Twitter
 	app.hasScreenName = function() {
 		
-		var screenName = instaServiceFact.getScreenName();
+		var screenName = twitterServiceFact.getScreenName();
 		if(screenName=='' || screenName==null || screenName==undefined) {
 			return false;
 		} else {
@@ -26,11 +23,15 @@ angular.module('controllerModule', ['InstagramServiceModule'])
 		}
 	}
 
+	// Get User's Twitter Data from server
 	app.getTwitterData = function() {
-			
-		var screenVar = app.screenName || instaServiceFact.getScreenName();
-		instaServiceFact.getTweets(screenVar).then(function(data) {
+		
+		// screenVar can be obtained from the user input or local Storage	
+		var screenVar = app.screenName || twitterServiceFact.getScreenName();
+
+		twitterServiceFact.getTweets(screenVar).then(function(data) {
 			app.success = data.data.success;
+			console.log(app.success);
 			if(app.success == true) {
 				app.twitterData = data.data.data;
 				if(app.twitterData == []) {
@@ -38,11 +39,12 @@ angular.module('controllerModule', ['InstagramServiceModule'])
 					return;
 				}
 				app.screenName = screenVar;
-				instaServiceFact.setScreenName(app.screenName);
-				$window.localStorage.setItem('twitter', JSON.stringify(app.twitterData));
-				$location.url('/twitter');
+				twitterServiceFact.setScreenName(app.screenName);
+				twitterServiceFact.setTwitterData(app.twitterData);
 			} else {
-				instaServiceFact.setScreenName();
+				alert('No user for this screen Name. Please enter again');
+				app.screenName = '';
+				twitterServiceFact.setScreenName();
 			}		
 		});
 		
@@ -59,8 +61,7 @@ angular.module('controllerModule', ['InstagramServiceModule'])
 			// Get user information from access Token received above
 			instaServiceFact.getUserData(accessToken).then(function(data){
 				app.users = data.data.data;
-				$window.localStorage.setItem('insta', JSON.stringify(app.users));
-				console.log(app.users);		
+				instaServiceFact.setInstaData(app.users);		
 			});
 			
 
@@ -70,11 +71,13 @@ angular.module('controllerModule', ['InstagramServiceModule'])
 	
 
 })
-
+// directive returns modal for entering screen name
 .directive('modalDirective', function() {
+	
 	return {
 		restrict : 'E',
-		templateUrl : './app/views/modal.html'
+		templateUrl : './app/views/modal.html',
 	}
+		
 })
 

@@ -1,4 +1,4 @@
-angular.module('appRoutes', ['ngRoute'])
+var app = angular.module('appRoutes', ['ngRoute', 'instagramServiceModule'])
 .config(function($routeProvider, $locationProvider){
 	$routeProvider
 	.when('/', {
@@ -19,21 +19,3 @@ angular.module('appRoutes', ['ngRoute'])
 	  requireBase: false
 	});
 });
-
-/*app.run(['$rootScope', 'auth', '$location', function($rootScope,  auth, $location){
-	$rootScope.$on('$routeChangeStart', function(event, next, current) {
-		if(next.$$route.authenticated == true){
-			if(!auth.isLoggedIn) {
-				event.preventDefault();
-				$location.path("/");
-			}
-		} 
-		else if(!next.$$route.authenticated == false) {
-			if(!auth.isLoggedIn) {
-				event.preventDefault();
-				$location.path("/profile");
-			}
-		}
-	})	
-}])*/
-

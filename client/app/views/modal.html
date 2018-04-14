@@ -2,15 +2,22 @@
 	<div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      	<div class="modal-header">
-	        	<h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i> Twitter Sign In</h5>
+	        	<h3 class="modal-title" id="exampleModalLabel">Twitter Sign In</h3>
+	        	<div><i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i></div>
 	     	</div>
 	      	<div class="modal-body">
-	    		<label id="screenName">Screen Name :</label>
-	    		<input class="form-control" type="text" name="screenName" ng-model="main.screenName">
+	      		<h6 class="text-left text-twitter">Please enter your Screen Name to log in</h6>
+	      		<br>
+	      		<form name="regForm">
+	      			<div class="form-group">
+	    				<input class="form-control" type="text" name="screenName" ng-model="main.screenName" placeholder="Screen Name" required>
+	    				<p class="help-block text-danger" ng-show="(!regForm.screenName.$pristine && regForm.screenName.$error.required) || (regForm.$submitted && regForm.screenName.$error.required)">This field is required</p>
+	    			</div>
+	    		</form>
 	      	</div>
 		    <div class="modal-footer">
 		    	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary" ng-click="main.getTwitterData();" data-dismiss="modal">Submit</button>
+		        <button type="button" class="btn btn-primary" ng-click="main.getTwitterData();" ng-disabled="regForm.screenName.$error.required" data-dismiss="modal">Submit</button>
 		    </div>
 	    </div>
 	</div>

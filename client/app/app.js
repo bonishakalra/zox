@@ -1,1 +1,1 @@
-angular.module('zoxApp', ['controllerModule','InstagramServiceModule', 'appRoutes']);
+angular.module('zoxApp', ['controllerModule', 'instagramServiceModule', 'twitterServiceModule', 'appRoutes']);
