@@ -1,3 +1,4 @@
+<!-- sidebar of the instagram page -->
 <sidebar>
     <div class="text-center">
         <img class="img-fluid  profile-pic" src="{{main.users[0].user.profile_picture}}" alt="Card image cap">
@@ -8,12 +9,13 @@
 </sidebar>
 
 
-
+<!-- content of the instagram page -->
 <div class="container insta">
     <div class="eachPic" ng-repeat="user in main.users track by $index">
         <div>
             <img class="img-fluid" src="{{user.images.low_resolution.url}}" alt="Card image cap" data-toggle="modal" data-target="#{{'myModal' + $index}}">
 
+            <!-- modal show when any user's profile pic is clicked -->
             <div id="{{'myModal' + $index}}" class="modal fade" role="dialog">
                 <div class="modal-dialog">
 
@@ -53,5 +55,3 @@
     </div>
 </div>
                         
-
-<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->

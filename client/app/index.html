@@ -16,10 +16,15 @@
 	
 	<!-- Cascading Style Sheets -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://use.fontawesome.com/503308b838.js"></script>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+	<!-- font awesome scripting file -->
+	<script src="https://use.fontawesome.com/503308b838.js"></script>
+
+	<!-- To support Bootstrap by jquery JS file --> 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	
+	<!-- Bootstrap JS file -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 	<!-- Angular Config File -->
@@ -36,12 +41,15 @@
 	<script type="text/javascript" src="./app/Services/twitterService.js"></script>
 
 </head>
+
 <body ng-app="zoxApp" ng-controller="mainController as main">
 	<header>
 		<div>
+			<!-- modal directive for creating a modal for sign up page for twitter -->
 			<modal-directive></modal-directive>
 		</div>
 		<nav>
+			<!-- custom navbar to switch between Twitter and Instagram -->
 			<div class="container">
 				<div class="row text-center">
 					<a class="col-md-6 text-center nav-icon" ng-if="main.users.length==0" ng-href="https://www.instagram.com/oauth/authorize/?client_id=6c631a6688cb4f93a2626054b818901d&redirect_uri={{main.redirectUrl}}&response_type=token&scope=basic">
@@ -63,16 +71,8 @@
 		
 	</header>
 
+	<!-- The content of every partial page goes here -->
 	<div ng-view></div>
 
 </body>
 </html>
-
-
-<!-- ng-href="https://www.instagram.com/oauth/authorize/?client_id=6c631a6688cb4f93a2626054b818901d&redirect_uri={{main.redirectUrl}}&response_type=token&scope=basic" -->
-
-<!-- 
-<a href="https://www.instagram.com/oauth/authorize/?client_id=6c631a6688cb4f93a2626054b818901d&redirect_uri=http://localhost:8000/&response_type=token&scope=basic">Instagram</a> -->
-<!-- <div ng-repeat="user in users">
-	<img src="{{user.images.standard_resolution.url}}">
-</div> -->

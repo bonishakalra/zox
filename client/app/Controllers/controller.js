@@ -51,6 +51,8 @@ angular.module('controllerModule', ['instagramServiceModule'])
 		
 	}
 
+
+	// on route change, if access token exists, receive the token and get data for instagram user from instagram api
 	$rootScope.$on('$locationChangeSuccess', function($event, next, current) { 
 
 		if(current.indexOf('access_token')!==-1) {

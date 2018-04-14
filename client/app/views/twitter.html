@@ -1,3 +1,4 @@
+<!-- sidebar of the twitter page -->
 <sidebar>
     <div class="text-center">
         <img class="img-fluid  profile-pic" src="{{main.twitterData[0].user.profile_image_url_https}}" alt="Card image cap">
@@ -27,7 +28,7 @@
 </sidebar>
 
 
-
+<!-- Content of the twitter page -->
 <div class="container insta">
     <div ng-repeat="data in main.twitterData track by $index">
         <div class="card tweet-card text-secondary">
@@ -47,6 +48,3 @@
         </div>    
     </div>
 </div>
-                        
-
-<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
