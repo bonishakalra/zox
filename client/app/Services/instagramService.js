@@ -10,7 +10,7 @@ angular.module('instagramServiceModule',[])
 			    method	: "GET",
 			    params	: {
 			    	access_token	: accessToken,
-			    	count 			: 9
+			    	count 			: 20
 			    }
 			 })
 	}

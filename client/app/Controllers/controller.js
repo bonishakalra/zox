@@ -5,6 +5,8 @@ angular.module('controllerModule', ['instagramServiceModule'])
 
 	app.redirectUrl = 'http://localhost:8000/insta';
 	app.screenName = '';
+	app.numbers = [5,9,12,15,20];
+	app.numberOfPosts = 5;
 
 	// Get twitter and Insta data from Local Storage
 	app.twitterLocalStorage = twitterServiceFact.getTwitterData();
@@ -23,6 +25,11 @@ angular.module('controllerModule', ['instagramServiceModule'])
 		}
 	}
 
+	// Sets the number of posts, user has to see
+	app.selectNumber =function(number) {
+		app.numberOfPosts = number;
+	}
+
 	// Get User's Twitter Data from server
 	app.getTwitterData = function() {
 		
@@ -31,7 +38,6 @@ angular.module('controllerModule', ['instagramServiceModule'])
 
 		twitterServiceFact.getTweets(screenVar).then(function(data) {
 			app.success = data.data.success;
-			console.log(app.success);
 			if(app.success == true) {
 				app.twitterData = data.data.data;
 				if(app.twitterData == []) {

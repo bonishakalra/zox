@@ -23,7 +23,7 @@
             </div>
         </div>        
 
-        <button class="btn btn-secondary btn-block twitter-button">Twitter</button>
+        <a class="btn btn-secondary btn-block twitter-button" target="_blank" href="https://twitter.com">Twitter</a>
     </div>
 </sidebar>
 
@@ -31,20 +31,22 @@
 <!-- Content of the twitter page -->
 <div class="container insta">
     <div ng-repeat="data in main.twitterData track by $index">
-        <div class="card tweet-card text-secondary">
-            <div>
-                <img class="tiny-pic" src="{{data.user.profile_image_url_https}}">
-                <strong class="text-twitter" ng-bind="data.user.name"></strong>
-                <span > &#64;{{data.user.screen_name}}</span>
-                <span class="right-text" ng-bind="data.created_at.substr(0, 11)"></span>
-            </div>
-            <div class="card-body" ng-bind="data.text"></div>
-            
-            <div class="modal-footer">
-                <span class="tweet-spans grey-text"><i class="fa fa-heart fa-2x"></i> {{data.favorite_count}}</span>
-                <span class="tweet-spans grey-text"><i class="fa fa-retweet fa-2x"></i> {{data.retweet_count}}</span>
-            </div>
-            
-        </div>    
+        <div ng-if="$index<main.numberOfPosts">
+            <div class="card tweet-card text-secondary">
+                <div>
+                    <img class="tiny-pic" src="{{data.user.profile_image_url_https}}">
+                    <strong class="text-twitter" ng-bind="data.user.name"></strong>
+                    <span > &#64;{{data.user.screen_name}}</span>
+                    <span class="right-text" ng-bind="data.created_at.substr(0, 11)"></span>
+                </div>
+                <div class="card-body" ng-bind="data.text"></div>
+                
+                <div class="modal-footer">
+                    <span class="tweet-spans grey-text"><i class="fa fa-heart fa-2x"></i> {{data.favorite_count}}</span>
+                    <span class="tweet-spans grey-text"><i class="fa fa-retweet fa-2x"></i> {{data.retweet_count}}</span>
+                </div>
+                
+            </div> 
+        </div>   
     </div>
 </div>

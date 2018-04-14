@@ -2,7 +2,7 @@ var app = angular.module('appRoutes', ['ngRoute', 'instagramServiceModule'])
 .config(function($routeProvider, $locationProvider){
 	$routeProvider
 	.when('/', {
-		/*templateUrl : './home.html'*/
+		templateUrl : './app/views/home.html'
 	})
 	.when('/insta', {
 		templateUrl : '/app/views/insta.html'

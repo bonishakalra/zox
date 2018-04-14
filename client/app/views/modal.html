@@ -11,7 +11,7 @@
 	      		<br>
 	      		<form name="regForm">
 	      			<div class="form-group">
-	    				<input class="form-control" type="text" name="screenName" ng-model="main.screenName" placeholder="Screen Name" required>
+	    				<input class="form-control" type="text" name="screenName" ng-model="main.screenName" placeholder="Screen Name" autofocus required>
 	    				<p class="help-block text-danger" ng-show="(!regForm.screenName.$pristine && regForm.screenName.$error.required) || (regForm.$submitted && regForm.screenName.$error.required)">This field is required</p>
 	    			</div>
 	    		</form>

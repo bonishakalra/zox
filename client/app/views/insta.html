@@ -4,7 +4,7 @@
         <img class="img-fluid  profile-pic" src="{{main.users[0].user.profile_picture}}" alt="Card image cap">
         <h3><strong>{{main.users[0].user.username}}</strong></h3>
         <h6 class="text-secondary">{{main.users[0].user.full_name}}</h6>
-        <button class="btn btn-secondary btn-block insta-button">Instagram</button>
+        <a class="btn btn-secondary btn-block insta-button" href="https://www.instagram.com" target="_blank">Instagram</a>
     </div>
 </sidebar>
 
@@ -12,7 +12,7 @@
 <!-- content of the instagram page -->
 <div class="container insta">
     <div class="eachPic" ng-repeat="user in main.users track by $index">
-        <div>
+        <div ng-if="$index<main.numberOfPosts">
             <img class="img-fluid" src="{{user.images.low_resolution.url}}" alt="Card image cap" data-toggle="modal" data-target="#{{'myModal' + $index}}">
 
             <!-- modal show when any user's profile pic is clicked -->

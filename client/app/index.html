@@ -40,9 +40,11 @@
 	<script type="text/javascript" src="./app/Services/instagramService.js"></script>
 	<script type="text/javascript" src="./app/Services/twitterService.js"></script>
 
+	<link href="https://fonts.googleapis.com/css?family=Felipa" rel="stylesheet">
+
 </head>
 
-<body ng-app="zoxApp" ng-controller="mainController as main">
+<body ng-app="zoxApp" ng-controller="mainController as main" >
 	<header>
 		<div>
 			<!-- modal directive for creating a modal for sign up page for twitter -->
@@ -50,21 +52,33 @@
 		</div>
 		<nav>
 			<!-- custom navbar to switch between Twitter and Instagram -->
-			<div class="container">
+			<div class="container-fluid">
+				
 				<div class="row text-center">
-					<a class="col-md-6 text-center nav-icon" ng-if="main.users.length==0" ng-href="https://www.instagram.com/oauth/authorize/?client_id=6c631a6688cb4f93a2626054b818901d&redirect_uri={{main.redirectUrl}}&response_type=token&scope=basic">
+					<a class="col-md-2 company-name" href="/">ZOX</a>
+					<a class="col-md-4 text-center nav-icon" ng-if="main.users.length==0" ng-href="https://www.instagram.com/oauth/authorize/?client_id=6c631a6688cb4f93a2626054b818901d&redirect_uri={{main.redirectUrl}}&response_type=token&scope=basic">
 						<i class="fa fa-instagram fa-5x" aria-hidden="true"></i>
 					</a>
-					<a class="col-md-6 text-center nav-icon" ng-if="main.users.length>0" ng-href="/insta">
+					<a class="col-md-4 text-center nav-icon" ng-if="main.users.length>0" ng-href="/insta">
 						<i class="fa fa-instagram fa-5x" aria-hidden="true"></i>
 					</a>
-					<a class="col-md-6 text-center nav-icon" ng-if="main.hasScreenName()" ng-click="main.getTwitterData()">
+					<a class="col-md-4 text-center nav-icon" ng-if="main.hasScreenName()" ng-click="main.getTwitterData()">
 						<i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i>
 					</a>
-					<a class="col-md-6 text-center nav-icon" data-toggle="modal" data-target="#twitterSignUpModal" ng-if="!main.hasScreenName()">
+					<a class="col-md-4 text-center nav-icon" data-toggle="modal" data-target="#twitterSignUpModal" ng-if="!main.hasScreenName()">
 						<i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i>
 					</a>
+					<div class="col-md-2 text-right dropdown">
+						<i class="fa fa-cog fa-3x dropbtn"></i>
+						<div class="dropdown-content">
+							<div class="text-center text-dark">Number of Posts</div>
+							<a href="#" ng-repeat="number in main.numbers" class="form-control text-center">
+								<div ng-click="main.selectNumber(number)">{{number}}</div>
+							</a>
+						</div>
+					</div>
 				</div>
+				
 			</div>
 		</nav>
 
