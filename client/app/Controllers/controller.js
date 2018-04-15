@@ -3,7 +3,10 @@ angular.module('controllerModule', ['instagramServiceModule'])
 	
 	var app = this;
 
+	/*heroku deployed redirect Url*/
 	app.redirectUrl = 'https://stark-waters-17087.herokuapp.com/insta';
+	/*Locally deployed redirect Url*/
+	/*app.redirectUrl = 'http://localhost:8000/insta';*/
 	app.screenName = '';
 	app.numbers = [5,9,12,15,20];
 	app.numberOfPosts = 5;
