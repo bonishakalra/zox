@@ -11,47 +11,60 @@
 
 <!-- content of the instagram page -->
 <div class="container insta">
-    <div class="eachPic" ng-repeat="user in main.users track by $index">
-        <div ng-if="$index<main.numberOfPosts">
-            <img class="img-fluid" src="{{user.images.low_resolution.url}}" alt="Card image cap" data-toggle="modal" data-target="#{{'myModal' + $index}}">
+    <div  class="row row-grid">
+        <div ng-repeat="user in main.users track by $index">
+            <div ng-if="$index<main.numberOfPosts">
+                <div class="column" ng-if="$index%3==0">
+                    <img class="img-fluid" src="{{user.images.low_resolution.url}}" alt="Card image cap" data-toggle="modal" data-target="#{{'myModal' + $index}}" style="width:100%">
+                </div>
 
-            <!-- modal show when any user's profile pic is clicked -->
-            <div id="{{'myModal' + $index}}" class="modal fade" role="dialog">
-                <div class="modal-dialog">
+               <div class="column" ng-if="$index%3==1">
+                    <img class="img-fluid" src="{{user.images.low_resolution.url}}" alt="Card image cap" data-toggle="modal" data-target="#{{'myModal' + $index}}" style="width:100%">
+                </div>
+                
+                <div class="column" ng-if="$index%3==2">
+                    <img class="img-fluid" src="{{user.images.low_resolution.url}}" alt="Card image cap" data-toggle="modal" data-target="#{{'myModal' + $index}}" style="width:100%">
+                </div> 
 
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="card">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <img class="img-fluid" src="{{user.images.standard_resolution.url}}" alt="Card image cap">
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">
-                                            <img class="tiny-pic" src="{{user.user.profile_picture}}">
-                                            {{user.user.username}}
-                                        </h4>
+
+                <!-- modal show when any user's profile pic is clicked -->
+                <div id="{{'myModal' + $index}}" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <img class="img-fluid" src="{{user.images.standard_resolution.url}}" alt="Card image cap">
                                     </div>
-                                    <div class="card-title"><strong>{{user.user.username}}</strong> <span ng-if="user.caption"> {{user.caption.text}}</span></div>
-                                    
-                                    <div class="modal-footer">
-                                        <p class="card-text">
-                                            <div ng-if="user.comments.count!=0"><i class="fa fa-comment fa-2x"></i> <strong>{{user.comments.count}}</strong></div>
-                                            <div ng-if="user.likes.count!=0"><i class="fa fa-heart fa-2x"></i> <strong>{{user.likes.count}}</strong></div>
-                                        </p>
-                                        <hr/>
-                                        <div>
-                                            <a class="btn btn-primary btn-block" ng-href="{{user.link}}">Go to Instagram</a>
+                                    <div class="col-md-5">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">
+                                                <img class="tiny-pic" src="{{user.user.profile_picture}}">
+                                                {{user.user.username}}
+                                            </h4>
+                                        </div>
+                                        <div class="card-title"><strong>{{user.user.username}}</strong> <span ng-if="user.caption"> {{user.caption.text}}</span></div>
+                                        
+                                        <div class="modal-footer">
+                                            <p class="card-text">
+                                                <div ng-if="user.comments.count!=0"><i class="fa fa-comment fa-2x"></i> <strong>{{user.comments.count}}</strong></div>
+                                                <div ng-if="user.likes.count!=0"><i class="fa fa-heart fa-2x"></i> <strong>{{user.likes.count}}</strong></div>
+                                            </p>
+                                            <hr/>
+                                            <div>
+                                                <a class="btn btn-primary btn-block" ng-href="{{user.link}}">Go to Instagram</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
+        </div>
     </div>
 </div>
                         
